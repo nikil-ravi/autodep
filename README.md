@@ -79,3 +79,12 @@ This project uses:
 - **OpenAI API**: For generating and formalizing mathematical statements
 - **NLTK**: For BLEU score calculations
 - **Datasets**: For loading the ProofNet dataset
+
+## Development
+```bash
+# Run tests
+uv run pytest -v
+
+# Format and lint
+pre-commit run --all-files
+```

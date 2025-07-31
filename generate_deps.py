@@ -25,8 +25,8 @@ def generate_implication(statement: str, model: str = "gpt-4o-mini") -> str:
         {
             "role": "system",
             "content": """You are an expert mathematician. Given a mathematical statement, generate another informal
-            statement that logically follows from it
-            as a direct consequence (i.e, a necessary and sufficient condition).""",
+                            statement that logically follows from it
+                            as a direct consequence (i.e, a necessary and sufficient condition).""",
         },
         {
             "role": "user",
