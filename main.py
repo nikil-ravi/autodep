@@ -2,6 +2,8 @@ from datasets import load_dataset
 import logging
 logging.basicConfig(level=logging.INFO)
 from autoformalize import autoformalize
+from generate_deps import generate_deps_and_formalize
+from utils import calc_overall_bleu
 
 def load_proofnet_data(hf_dataset_name: str = "proofnet/proofnet-lean4"):
     if hf_dataset_name == "proofnet/proofnet-lean4":
@@ -17,10 +19,9 @@ def main():
     logging.info("Starting to run autodep...")
     dataset = load_proofnet_data()
     logging.info(f"Loaded {len(dataset)} examples")
-    for example in dataset:
-        logging.info(example)
-        formalized = autoformalize(example)
-        break
+    generate_deps_and_formalize(dataset.select(range(10)))
+    overall_bleu = calc_overall_bleu("data/proofnet/generated_implications.jsonl")
+    logging.info(f"Overall BLEU score: {overall_bleu}")
 
 
 
