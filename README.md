@@ -47,15 +47,21 @@ lean --version  # Should show Lean 4.x.x
 
 2. **Install dependencies:**
    ```
-   uv sync
+   uv sync --group dev
    ```
 
-3. **Set your OpenAI API key:** (Replace `your_key_here` with your actual key)
+3. **Set up pre-commit hooks (optional but recommended):**
+   ```
+   source .venv/bin/activate
+   pre-commit install
+   ```
+
+4. **Set your OpenAI API key:** (Replace `your_key_here` with your actual key)
    ```
    export OPENAI_API_KEY=your_key_here
    ```
 
-4. **Run the main script:**
+5. **Run the main script:**
    ```
    python main.py
    ```
@@ -73,6 +79,3 @@ This project uses:
 - **OpenAI API**: For generating and formalizing mathematical statements
 - **NLTK**: For BLEU score calculations
 - **Datasets**: For loading the ProofNet dataset
-
-
-
